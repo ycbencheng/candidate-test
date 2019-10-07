@@ -51,7 +51,7 @@ Use one of these gems: [Petergate](https://github.com/elorest/petergate) *(Prefe
 Use sqlite or mysql or postgres
 
 ## Testing
-Use [minitest](https://github.com/blowmage/minitest-rails) as the test suite. 
+Use [minitest](https://github.com/blowmage/minitest-rails) or Rspec as the test suite. 
 
 ## Authentication
 Use [devise](https://github.com/plataformatec/devise) for authentication.
