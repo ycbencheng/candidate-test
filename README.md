@@ -1,10 +1,8 @@
-<img src="https://cdn.shopify.com/s/files/1/0163/4078/t/74/assets/logo.png?3926" width="161" height="60"/>
-
-# Rails Competency Test - Simple News Application
+# Rails Code Challenge - Simple News Application
 
 To get started please fork this project and carefully read the following instructions.
 
-Commit all of the code to your fork of this project. If you screen record yourself working through the competency test you'll get *(Extra Credit)*
+Commit all of the code to your fork of this project. If you screen record yourself working through the code challenge you'll get *(Extra Credit)*
 
 ## User Personas
 The project will have multiple roles that interact with each other.
@@ -48,7 +46,7 @@ Use one of these gems: [Petergate](https://github.com/elorest/petergate) *(Prefe
 * admin *(Extra Credit)*
 
 ## Database
-Use sqlite or mysql or postgres
+Use postgres
 
 ## Testing
 Use [minitest](https://github.com/blowmage/minitest-rails) or Rspec as the test suite. 
