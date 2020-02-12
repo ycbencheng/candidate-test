@@ -39,7 +39,7 @@ The project will have multiple roles that interact with each other.
 Table will contain **title**, **content**, **category**, **user_id**.
 
 ## Roles
-Use one of these gems: [Petergate](https://github.com/elorest/petergate) *(Preferred)*, [Pundit](https://github.com/varvet/pundit), [Cancancan](https://github.com/CanCanCommunity/cancancan).
+Use one of these gems: [Pundit](https://github.com/varvet/pundit), [Cancancan](https://github.com/CanCanCommunity/cancancan).
 ###### Role Names
 * user
 * editor
