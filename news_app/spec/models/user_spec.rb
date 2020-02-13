@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  #add name attribute to User model (Devise). 
+  let(:user) { User.create!(email: "user@email.com", password: "user1234") }
+
+  describe "attributes" do
+    it "has email and password attributes" do
+      expect(user).to have_attributes(email: "user@email.com", password: "user1234")
+    end
+  end
 end
