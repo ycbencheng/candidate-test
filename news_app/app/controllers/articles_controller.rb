@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  after_action :verify_authorized, only: [:new]
+
   def index
     @articles = Article.all
   end
@@ -9,6 +12,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    authorize @article
   end
 
   def create
