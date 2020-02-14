@@ -1,0 +1,28 @@
+<%= form_for [article] do |a| %>
+  <div class="field">
+    <%= a.label :title %>
+    <div class="control">
+      <%= a.text_field :title, :required => true %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= a.label :content %>
+    <div class="control">
+      <%= a.text_field :content, :required => true %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= a.label :category %>
+    <div class="control">
+      <%= a.text_field :category, :required => true %>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= a.submit "Save", class: 'button is-link' %>
+    </div>
+  </div>
+<% end %>
