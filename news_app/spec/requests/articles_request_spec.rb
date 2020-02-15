@@ -23,6 +23,7 @@ RSpec.describe "Articles", type: :request do
       category: 'tech', 
       user: user) 
     }
+
     describe "GET /index" do
       it "returns http success" do
         get articles_path
@@ -35,11 +36,11 @@ RSpec.describe "Articles", type: :request do
       before do
         sign_in(user)
       end
-      # not passing needs fixing
-      # it "returns http success" do
-      #   get "/articles/#{@article.id}"
-      #   expect(response).to have_http_status(:success)
-      # end
+
+      it "returns http success" do
+        get "/articles/#{@article}"
+        expect(response).to have_http_status(:success)
+      end
     end
 
   end
@@ -54,10 +55,6 @@ RSpec.describe "Articles", type: :request do
       user: user) 
     }
 
-    before do
-      sign_in(user)
-    end
-
     describe "GET /index" do
       it "returns http success" do
         get articles_path
@@ -66,6 +63,16 @@ RSpec.describe "Articles", type: :request do
       end
     end
 
+    describe "GET /show" do
+      before do
+        sign_in(user)
+      end
+
+      it "returns http success" do
+        get "/articles/#{@article}"
+        expect(response).to have_http_status(:success)
+      end
+    end
   end
 
   context "admin" do
@@ -78,10 +85,6 @@ RSpec.describe "Articles", type: :request do
       user: user) 
     }
 
-    before do
-      sign_in(user)
-    end
-
     describe "GET /index" do
       it "returns http success" do
         get articles_path
@@ -89,7 +92,17 @@ RSpec.describe "Articles", type: :request do
         expect(response).to render_template(:index)
       end
     end
-    
+
+    describe "GET /show" do
+      before do
+        sign_in(user)
+      end
+
+      it "returns http success" do
+        get "/articles/#{@article}"
+        expect(response).to have_http_status(:success)
+      end
+    end
   end
 
   # describe "GET /index" do

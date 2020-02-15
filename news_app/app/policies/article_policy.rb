@@ -14,9 +14,5 @@ class ArticlePolicy < ApplicationPolicy
       end
       articles
     end
-
-    def new?
-      user.editor? || user.admin?
-    end
   end
 end

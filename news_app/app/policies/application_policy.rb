@@ -20,7 +20,7 @@ class ApplicationPolicy
 
   def new?
     #create?
-    user.present? && user.editor? || user.admin?
+    user.editor?
   end
 
   def update?
@@ -28,11 +28,13 @@ class ApplicationPolicy
   end
 
   def edit?
-    update?
+    #update?
+    user.editor? && (record.user === user)
   end
 
   def destroy?
-    false
+    #false
+    user.editor? && (record.user === user)
   end
 
   class Scope

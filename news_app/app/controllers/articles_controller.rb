@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    authorize @article
   end
 
   def update
@@ -48,9 +49,9 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-
+    authorize @article
     if @article.destroy
-      flash[:notice] = "\"#{@article.name}\" was deleted successfully."
+      flash[:notice] = "\"#{@article.title}\" was deleted successfully."
       redirect_to action: :index
     else
       flash.now[:alert] = "There was an error deleting the topic."
