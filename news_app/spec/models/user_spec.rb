@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  #add name attribute to User model (Devise). 
   let(:user) { User.create!(email: "user@email.com", password: "user1234") }
 
   describe "attributes" do

@@ -6,22 +6,23 @@ RSpec.describe ArticlePolicy, type: :policy do
   subject { described_class }
 
   permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
   end
 
   permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
   end
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  permissions :new?, :create?, :update?, :edit?, :destroy? do
+    it "denies access if user is not logged in" do
+      expect(subject).not_to permit(User.new(role: nil))
+    end
+
+    it "denies access if user is user (role)" do
+      expect(subject).not_to permit(User.new(role: "user"))
+    end
+
+    it "denies access if user is admin" do
+      expect(subject).not_to permit(User.new(role: "admin"))
+    end
   end
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
 end

@@ -19,7 +19,6 @@ class ApplicationPolicy
   end
 
   def new?
-    #create?
     user.editor?
   end
 
@@ -28,12 +27,10 @@ class ApplicationPolicy
   end
 
   def edit?
-    #update?
     user.editor? && (record.user === user)
   end
 
   def destroy?
-    #false
     user.editor? && (record.user === user)
   end
 
