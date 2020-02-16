@@ -1,6 +1,26 @@
-<% if user_signed_in? %>
-  <h3>Signed in as <%= current_user.email %></h3>
-<% else %>
-  <h1>Welcome#index</h1>
-<% end %>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>News App</h1>
+  <% if user_signed_in? && current_user.editor? %>
+    <%= link_to "New Topic", new_article_path, class: 'btn btn-success' %>
+  <% end %>
+  <div class="row">
+  <% if @articles.count > 0 %>
+    <% article_categories.each do |item| %>
+      <div class="col-4 py-2">
+        <h2><%= item.capitalize %></h2>
+        <% articles = Article.where(category: item).limit(3) %>
+        <% articles.each do |article| %>
+          <div class="card my-3 p-2">
+            <h4><%= link_to article.title, article %></h4>
+            <small>Written by <%= article.user.email %></small>
+            <div class="mt-2">
+              <p><%= article.content %></p>
+            </div>
+            <h6>#<%= article.category %></h6>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <h1>There are 0 articles</h1>
+  <% end %>
+</div>

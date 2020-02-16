@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @article.user = current_user
 
     if @article.save
-      flash[:notice] = "Article was saved successfully."
+      flash[:success] = "Article was saved successfully."
       redirect_to @article
     else
       flash.now[:alert] = "Error creating article. Please try again."

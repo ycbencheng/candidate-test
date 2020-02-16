@@ -1,28 +1,28 @@
 <%= form_for [article] do |a| %>
-  <div class="field">
-    <%= a.label :title %>
-    <div class="control">
-      <%= a.text_field :title, :required => true %>
+  <% if article.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(article.errors.count, "error") %>.</h4>
     </div>
-  </div>
+  <% end %>
+  <%= form_with model: @article do |article| %>
+    <div class="form-group">
+      <%= a.label :title %>
+      <%= a.text_field :title, class: 'form-control', :required => true %>
+    </div>
 
-  <div class="field">
-    <%= a.label :content %>
-    <div class="control">
+    <div class="form-group">
+      <%= a.label :content %>
       <%= a.text_area :content, rows: 8, class: 'form-control', placeholder: "Enter article content here", :required => true %>
     </div>
-  </div>
 
-  <div class="field">
-    <%= a.label :category %>
-    <div class="control">
-      <%= a.text_field :category, :required => true %>
+    <div class="form-group">
+      <%= a.label :category %>
+      <%= a.text_field :category, class: 'form-control', :required => true %>
     </div>
-  </div>
 
-  <div class="field is-grouped">
-    <div class="control">
+    <div class="form-group">
       <%= a.submit "Save", class: 'button is-link' %>
     </div>
-  </div>
+  <% end %>
+ 
 <% end %>

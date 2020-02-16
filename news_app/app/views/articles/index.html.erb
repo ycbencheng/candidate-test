@@ -1,25 +1,15 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
-
-<% if user_signed_in? %>
-  <% if @articles.count > 0 %>
-    <h1>There are many articles</h1>
-    <%= link_to "New", new_article_path, :class => "navbar-item" %>
-  <% else %>
-    <h1>There are 0 articles</h1>
+<h1>Articles Index</h1>
+<div class="row">
+  <% @articles.each do |article| %>
+    <div class="col-6">
+      <div class="card my-3 p-2">
+        <h4><%= link_to article.title, article %></h4>
+        <small>Written by <%= article.user.email %></small>
+        <div class="mt-2">
+          <p><%= article.content %></p>
+        </div>
+        <h6>#<%= article.category %></h6>
+      </div>
+    </div>
   <% end %>
-<% else %>
-  <% if @articles.count > 0 %>
-    <% article_categories.each do |item| %>
-      <h2><%= item %></h2>
-      <% articles = Article.where(category: item).limit(3) %>
-      <% articles.each do |a| %>
-        <h4><%= a.title %></h4>
-        <h4><%= a.content %></h4>
-        <small><%= a.user.email %></small>
-      <% end %>
-    <% end %>
-  <% else %>
-    <h1>There are 0 articles</h1>
-  <% end %>
-<% end %>
+</div>

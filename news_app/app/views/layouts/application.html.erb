@@ -9,34 +9,37 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div class="navbar-end">
+  <body class="container">
+    <nav class="navbar navbar-light bg-light">
+      <%= link_to "News App", root_path, :class => "navbar-brand bg-info px-4 rounded-pill" %>
+      <%= link_to "Articles", articles_path, :class => "navbar-item" %>
       <% if user_signed_in? %>
-        <a class="navbar-link"><strong><%= current_user.email %></strong></a>
-        <div class="navbar-dropdown">
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "navbar-item" %>
+        <div>
+          <a class="navbar-link"><strong><%= current_user.email %></strong></a>
+          <button><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "navbar-item" %></button>
         </div>
       <% else %>
-        <%= link_to "Sign Up", new_user_registration_path, :class => "navbar-item" %>
-        <%= link_to "Sign In", new_user_session_path, :class => "navbar-item" %>
+        <div>
+          <button><%= link_to "Sign Up", new_user_registration_path, :class => "navbar-item" %></button>
+          <button><%= link_to "Sign In", new_user_session_path, :class => "navbar-item" %></button>
+        </div>
       <% end %>
       </li>
-    </div>
+    </nav>
 
-    <% if flash[:notice] %>
-      <div class="notification is-success">
-        <button type="button" class="delete">&times;</button>
-        <%= flash[:notice] %>
+    <% if flash[:success] %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <%= flash[:success] %>
       </div>
     <% elsif flash[:alert] %>
-      <div class="notification is-warning">
-        <button type="button" class="delete">&times;</button>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <%= flash[:alert] %>
-      </div>
-    <% elsif flash[:warning] %>
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:warning] %>
       </div>
     <% end %>
 
