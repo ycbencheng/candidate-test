@@ -21,7 +21,7 @@ The project will have multiple roles that interact with each other.
 
 ##### User
 * As a **user** I can see everything a guest can
-* As a **user** I can see article show pages. 
+* As a **user** I can see article show pages.
 * As a **user** I can logout
 
 ##### Editor
@@ -49,7 +49,7 @@ Use one of these gems: [Pundit](https://github.com/varvet/pundit), [Cancancan](h
 Use postgres
 
 ## Testing
-Use [minitest](https://github.com/blowmage/minitest-rails) or Rspec as the test suite. 
+Use [minitest](https://github.com/blowmage/minitest-rails) or Rspec as the test suite.
 
 ## Authentication
 Use [devise](https://github.com/plataformatec/devise) for authentication.
