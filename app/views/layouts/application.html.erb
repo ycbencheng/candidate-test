@@ -18,5 +18,11 @@
     <div class="container-fluid">
       <%= yield %>
     </div>
+    <footer>
+      <% if user_signed_in? %>
+          <p>Role: <%= current_user.role %></p> 
+      <% end %>
+    </footer>
   </body>
+  
 </html>
