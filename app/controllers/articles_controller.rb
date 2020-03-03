@@ -3,11 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    if !current_user.present?
-      @articles = Article.all[0..2]
-    else
       @articles = Article.all
-    end
   end
 
   
@@ -67,8 +63,7 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
-      authorize @article
+      @article = authorize Article.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
