@@ -1,23 +1,26 @@
 class ArticlePolicy < ApplicationPolicy
+  
   def index?
     true
   end
 
-  def create?
+  def create? ; editor? ; end
+
+  def show? 
     user.present?
   end
 
-  def update?
-    return true if user.present? && user == article.user
-  end
+  def update? ; editor? ; end
 
-  def destroy?
-    return true if user.present? && user == article.user
-  end
+  def destroy? ; editor? ; end
 
   private
 
     def article
       record
+    end
+
+    def editor?
+      user && user.role == 'editor' && record.user_id == user.id
     end
 end
