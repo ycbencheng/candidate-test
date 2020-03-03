@@ -4,5 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :articles
-  enum role: [:guest, :user, :editor_user, :admin_user]
+  #Not including guest since it doesn't require login
+  enum role: [:user, :editor, :admin]
+
+  #set a default role for new users
+  after_initialize do
+    if self.new_record?
+      self.role ||= :user
+    end
+  end
 end
