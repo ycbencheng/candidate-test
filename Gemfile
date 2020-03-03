@@ -41,6 +41,8 @@ group :development, :test do
   gem 'pry'
   gem "better_errors"
   gem "binding_of_caller"
+  # Adds fake data
+  gem 'faker'
 end
 
 group :development do
