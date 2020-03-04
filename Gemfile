@@ -43,7 +43,8 @@ group :development, :test do
   gem "binding_of_caller"
   # Adds fake data
   gem 'faker'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '4.0.0.beta3'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -62,6 +63,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'database_cleaner'
+  gem 'pundit-matchers', '~> 1.6.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
