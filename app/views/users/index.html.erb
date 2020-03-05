@@ -1,9 +1,8 @@
 <h4>Users</h4>
 <ul><% @users.each do |user| %>
   <li><%= link_to user.email, edit_user_path(user)%> <%= user.role %></li>
-  <% end %>
+<% end %>
 </ul>
-
 <br><br>
 <%= link_to "Go Back", root_path %>
  

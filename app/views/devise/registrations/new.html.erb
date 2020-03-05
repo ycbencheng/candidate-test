@@ -1,4 +1,8 @@
-<h2>Create a new user</h2>
+<% if current_user.nil? %>
+  <h3>Sign up</h3>
+<% else %>
+  <h3>Create a new user</h3>
+<% end  %>
 
 <%= form_for User.new, url: new_user_path do |f| %>
 
@@ -29,7 +33,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Create a new user" %>
+    <%= f.submit "Create" %>
   </div>
 <% end %>
 
