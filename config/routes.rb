@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   resources :articles
  
-  #Custom route for creating a new user - admin only
+  devise_for :users, :controllers => { :registrations => "registrations" } 
+
+  # Custom route for creating a new user - admin only
   devise_scope :user do
-    get "/create_new_user" => "users/registrations#new", as: "create_new_user" # custom path to sign_up/registration
+    get "/create_new_user" => "users/registrations#new", as: "create_new_user" 
+    post "/new_user" => "users/registrations#create"
   end
-  # Below for all other routes:
-  devise_for :users
+
+  resources :users, only: [:index, :edit, :update, :destroy]
 
   root to: "welcome#index"
 end
