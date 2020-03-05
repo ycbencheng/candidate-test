@@ -5,11 +5,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     super
   end
+  
+  def show
+  end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = current_user.id
+      if session[:user_id] == nil? 
+        current_user = @user 
+      else
+        session[:user_id] = current_user.id
+      end
+      
       redirect_to users_path
     else
       flash[:danger] = @user.errors.full_messages.to_sentence
@@ -20,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def redirect_unless_admin
-    unless current_user.role == 'admin'
+    unless current_user.nil? || current_user.role == 'admin'
       flash[:error] = "Only admins can do that"
       redirect_to root_path
     end
