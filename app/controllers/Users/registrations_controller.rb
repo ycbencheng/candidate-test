@@ -14,12 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
-      # if session[:user_id] == nil? 
-      #   current_user = @user 
-      # else
-      #   session[:user_id] = current_user.id
-      # end
-      
       redirect_to users_path
     else
       flash[:danger] = @user.errors.full_messages.to_sentence
