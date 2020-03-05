@@ -8,9 +8,9 @@ class User < ApplicationRecord
   enum role: [:user, :editor, :admin]
 
   #set a default role for new users
-  after_initialize do
-    if self.new_record?
-      self.role ||= :user
-    end
-  end
+  # after_initialize do
+  #   if self.new_record?
+  #     self.role ||= :user
+  #   end
+  # end
 end

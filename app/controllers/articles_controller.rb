@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
+    binding.pry
       @articles = Article.all
   end
 

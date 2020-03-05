@@ -3,8 +3,15 @@
     <div class="navbar-header">
       <%= link_to 'Home', root_path, class: 'navbar-brand' %>
       <%= link_to 'Articles', articles_path, class: 'navbar-brand' %>
+      
+      <%# Let a user create a new article if role is editor %>
       <% if current_user && current_user.role == 'editor' %>
         <%= link_to 'Create a new article', new_article_path, class: 'navbar-brand' %>
+      <% end %>
+
+      <%# Let a user create a new user if role is admin %>
+      <% if current_user && current_user.role == 'admin' %>
+        <%= link_to 'Create a new user', create_new_user_path, class: 'navbar-brand' %>
       <% end %>
     </div>
     <div id="navbar">
