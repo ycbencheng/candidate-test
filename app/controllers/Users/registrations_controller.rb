@@ -1,8 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :authenticate_user!, :redirect_unless_admin
   before_action :redirect_unless_admin_or_guest
-
-  # skip_before_action :require_no_authentication
 
   def new
     super
@@ -14,10 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path
+      sign_in(@user)   
+      redirect_to articles_path
     else
       flash[:danger] = @user.errors.full_messages.to_sentence
-      redirect_to create_new_user_path
+      redirect_to new_user_registration_path
     end
   end
 
