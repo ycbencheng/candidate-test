@@ -57,4 +57,4 @@ Use [devise](https://github.com/plataformatec/devise) for authentication.
 
 ## Frontend view
 Use one of these 3 for templating: [slim](https://github.com/slim-template/slim) *(Preferred)*, [haml](https://github.com/haml/haml), erb.
-** If you are familiar with React, you might use it as the frontend too.
+* If you are familiar with React, you may use it as the frontend too.
