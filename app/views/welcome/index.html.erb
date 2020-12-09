@@ -1,0 +1,26 @@
+<h3>Sample Articles</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Category</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+    <% articles = Article.where(category: category).limit(3) %>
+      <% articles.each do |article| %>
+        <tr>
+          <td><%= article.category %></td>
+          <td><%= article.title %></td>
+          <td><%= article.content %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+

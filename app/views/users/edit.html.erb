@@ -1,0 +1,39 @@
+<h3>Edit - <%= @user.email %></h3>
+
+<%= form_for(@user) do |f| %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.select :role, [['User', 'user'], ['Editor', 'editor'], ['Admin', 'admin']], 
+                      {include_blank: 'Select a role'}, 
+                      {required: true} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update user account" %>
+  </div>
+<% end %>
+
+<h4>Delete this user</h4>
+<%= button_to "Delete", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete %>
+
+<%= link_to "Back", :back %>
