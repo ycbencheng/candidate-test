@@ -1,4 +1,4 @@
-# Rails Code Challenge - Simple News Application
+# Candidate Test - Simple News Application
 
 To get started please fork this project and carefully read the following instructions.
 
