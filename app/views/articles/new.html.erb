@@ -1,0 +1,7 @@
+<h1>Articles#new</h1>
+<%= simple_form_for [@article] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :category, collection: @categories.each {|cat| cat}, include_blank: false %>
+  <%= f.submit 'Create Article', class: 'btn btn-outline-dark' %>
+<% end %>

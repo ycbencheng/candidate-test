@@ -1,0 +1,12 @@
+<h1>users#edit</h1>
+
+<h2>Editing <%= @user.email%></h2>
+
+<%= simple_form_for @user, url: users_admin_path(@user) do |f| %>
+  <%= f.input :email %>
+  <p>editor: <%= f.select :editor, [['No', false], ['Yes', true]] %></p>
+  <p>admin: <%= f.select :admin, [['No', false], ['Yes', true]] %></p>
+  <%= f.button :submit, 'Submit', class: 'btn btn-primary' %>
+<% end %>
+
+

@@ -1,0 +1,16 @@
+.articles-by-category {
+  text-align: center;
+}
+
+.list-items{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.article-info {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding-left: 0;
+}
