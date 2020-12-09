@@ -39,7 +39,8 @@ The project will have multiple roles that interact with each other.
 Table will contain **title**, **content**, **category**, **user_id**.
 
 ## Roles
-Use one of these gems: [Pundit](https://github.com/varvet/pundit), [Cancancan](https://github.com/CanCanCommunity/cancancan).
+Use one of these gems: [Pundit](https://github.com/varvet/pundit), [Cancancan](https://github.com/CanCanCommunity/cancancan), [Petergate](https://github.com/elorest/petergate).
+
 ###### Role Names
 * user
 * editor
@@ -54,5 +55,6 @@ Use [minitest](https://github.com/blowmage/minitest-rails) or Rspec as the test 
 ## Authentication
 Use [devise](https://github.com/plataformatec/devise) for authentication.
 
-## Templating
-Use one of these 3 for templating: [slim](https://github.com/slim-template/slim) *(Preferred)*, [haml](https://github.com/haml/haml), erb
+## Frontend view
+Use one of these 3 for templating: [slim](https://github.com/slim-template/slim) *(Preferred)*, [haml](https://github.com/haml/haml), erb.
+** If you are familiar with React, you might use it as the frontend too.
